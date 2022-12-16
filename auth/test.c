@@ -22,13 +22,16 @@ along with this library.  If not, see <http://www.gnu.org/licenses/>.
 #include "foxauth.h"
 
 int main(int argc, char **argv) {
-    if (getuid()) {
-        printf("Please run this test as root\n");
+    if (geteuid()) {
+        printf("Please run this test as root or\n");
+        printf("sudo chown root:root ./test_main\n");
+        printf("sudo chmod +s ./test_main\n");
+        printf("and now you can run it even if you are not root\n");
         return 1;
     }
 
     if (argc == 1) {
-        printf("./test_main NAME PASSWORD");
+        printf("./test_main NAME PASSWORD\n");
         return 1;
     }
 
