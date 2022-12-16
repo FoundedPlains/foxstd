@@ -52,6 +52,14 @@ ifeq ($(CONFIG_FOXSTACK), y)
 
 endif
 
+ifeq ($(CONFIG_FOXAUTH), y)
+
+	LIB_BUNDLE += ../auth/libfoxauth.a
+	HEADERS += ./auth/foxauth.h
+	CFLAGS += -lcrypt
+
+endif
+
 ifeq ($(CONFIG_FOXQUEUES), y)
 
 export CONFIG_FOXQUEUE_NORMAL
@@ -64,7 +72,7 @@ endif
 defconfig:
 	@cd kconfig-frontends && ./bootstrap
 	@cd kconfig-frontends && ./configure --disable-{nconf,gconf,qconf,conf}
-	$(MAKE) kconfig-frontends
+	$(MAKE) kconfig-frontends all
 
 menuconfig:
 	./kconfig-frontends/frontends/mconf/mconf KConfig
@@ -95,6 +103,10 @@ ifeq ($(CONFIG_FOXQUEUES), y)
 	$(MAKE) -C queue all
 endif
 
+ifeq ($(CONFIG_FOXAUTH), y)
+	$(MAKE) -C auth all
+endif
+
 	mkdir -p extracted
 	$(foreach lib, $(LIB_BUNDLE), cd extracted && ar x $(lib); cd ..;)
 	ar rcs libfoxstd.a extracted/*
@@ -119,6 +131,10 @@ ifeq ($(CONFIG_FOXSTACK), y)
 endif
 ifeq ($(CONFIG_FOXQUEUES), y)
 	$(MAKE) -C stack clean
+endif
+
+ifeq ($(CONFIG_FOXAUTH), y)
+	$(MAKE) -C auth clean
 endif
 
 	rm ./libfoxstd.a

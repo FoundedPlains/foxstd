@@ -51,3 +51,8 @@ config FOXQUEUE_NORMAL
 #       Implementation of Deque data structure
 
 endif
+
+config FOXAUTH
+    bool "FoxAuth"
+    help
+      Linux Authentication Library
