@@ -1,4 +1,4 @@
-# foxlibs
+# foxstd
 Every fox libraries which I created that can be bundled into single library <br>
 <br>
 <h1 align="center">Licensed under</h1>
