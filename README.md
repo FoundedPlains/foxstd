@@ -9,5 +9,5 @@ Every fox libraries which I created that can be bundled into single library <br>
 Don't forget to add `--recurse-submodules` when you are cloning the repository <br>
 like this
 ```bash
-git clone https://github.com/Fire-The-Fox/foxlibs.git --recurse-submodules
+git clone https://github.com/FoundedPlains/foxstd.git --recurse-submodules
 ````

@@ -1,4 +1,4 @@
-# This file is part of foxlibs
+# This file is part of foxstd
 # Copyright (C) 2022 Ján Gajdoš
 
 # This library is free software: you can redistribute it and/or modify
@@ -97,9 +97,9 @@ endif
 
 	mkdir -p extracted
 	$(foreach lib, $(LIB_BUNDLE), cd extracted && ar x $(lib); cd ..;)
-	ar rcs libfoxlibs.a extracted/*
+	ar rcs libfoxstd.a extracted/*
 	rm -rf extracted
-	@cat $(HEADERS) > foxlibs.h | sed -i '/#include/d' foxlibs.h
+	@cat $(HEADERS) > foxstd.h | sed -i '/#include/d' foxstd.h
 
 clean:
 ifeq ($(CONFIG_FOXCONFIG), y)
@@ -121,5 +121,5 @@ ifeq ($(CONFIG_FOXQUEUES), y)
 	$(MAKE) -C stack clean
 endif
 
-	rm ./libfoxlibs.a
-	rm foxlibs.h
+	rm ./libfoxstd.a
+	rm foxstd.h

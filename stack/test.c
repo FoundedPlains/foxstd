@@ -1,5 +1,5 @@
 /*
-This file is part of foxlibs
+This file is part of foxstd
 Copyright (C) 2022 Ján Gajdoš
 
 This library is free software: you can redistribute it and/or modify
