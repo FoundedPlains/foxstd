@@ -197,6 +197,7 @@ void parse(char *filename, Dict *dict) {
                     token = strtok_r(trimed+1, "]", &trimed);
                     NumberArray *array2 = (NumberArray*) temp.var;
                     *array2 = newNumberArray();
+                    if (!token) break;
 
                     token = strtok(token, ",");
 
@@ -214,6 +215,7 @@ void parse(char *filename, Dict *dict) {
                     token = strtok_r(trimed+1, "]", &trimed);
                     BoolArray *array3 = (BoolArray*) temp.var;
                     *array3 = newBoolArray();
+                    if (!token) break;
 
                     token = strtok(token, ",");
 
