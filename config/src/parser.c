@@ -175,7 +175,7 @@ void parse(char *filename, Dict *dict) {
                     token = strtok_r(trimed+1, "]", &trimed);
                     StringArray *array = (StringArray*) temp.var;
                     *array = newStringArray();
-
+                    if (!token) break;
                     token = strtok(token, ",");
 
                     while (token != NULL) {
